@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+<style>
+table, tr {border:hidden;}
+td, th {border:hidden;}
+tr:hover {background-color: gray;}
+</style>
+
+<style>
+    {
+        box-sizing: border-box;
+    }
+/* Set additional styling options for the columns */
+    .column {
+    float: left;
+    }
+
+/* Set width length for the left, right and middle columns */
+    .left {
+    width: 45%;
+    }
+
+    .middle {
+    width: 10%;
+    }
+    
+    .right {
+    width: 45%;
+    }
+
+    .third {
+    width: 33%;
+    }
+    
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+</style>
+
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+
+
+<section data-background="#000000">
+    <h3 style="font-size:40px">Learning-Guided Scanning Electron Microscopy<br> with Active Acquisition</h3>
+        <p style="font-size:30px">
+            Yaron Meirovitch<sup>1,2</sup>,
+            Core Park<sup>2</sup>,
+            Lu Mi<sup>1</sup>,
+            Pavel Potocek<sup>3</sup>,
+            <br>
+            Maurice Peemen<sup>3</sup>,
+            Shashata Sawmya<sup>1</sup>,
+            Yicong Li<sup>2</sup>,
+            Richard Schalek<sup>2</sup>,
+            <br>
+            Jeff W. Lichtman<sup>2</sup>,
+            Aravinthan D.T. Samuel<sup>2</sup>,<br>
+            Hanspeter Pfister<sup>2</sup>,
+            Nir Shavit<sup>1</sup>
+            <br>
+        </p>
+
+        <div style="position: absolute; top: 350px; left: 3%; width: 27%;">
+            <img src=" assetsmcknight/MIT-Logo.png " width="100%"> </div>
+        <div style="position: absolute; top: 350px; left: 36%; width: 27%; ">
+            <img src=" assetsmcknight/Harvardlogo.png " width="80%"> </div>
+        <div style="position: absolute; top: 350px; left: 69%; width: 27%; ">
+            <img src=" assetsmcknight/Thermofisher.png " width="100%"> </div>
+
+        <div style="position: absolute; top: 350px; left: 0%; width: 3%;">
+            <p style="font-size:25px">1</p> </div>
+        <div style="position: absolute; top: 350px; left: 33%; width: 3%; ">
+            <p style="font-size:25px">2</p> </div>
+        <div style="position: absolute; top: 350px; left: 66%; width: 3%; ">
+            <p style="font-size:25px">3</p> </div>
+</section>
+
+<!-- Limitations  -->
+
+<section>
+    <section data-background="#000000">
+        <p>Connectomics</p>
+        <p data-id="picture"> 
+            <img src=" assetsmcknight/NanoscaleImaging.png " width="60%"> 
+        </p>
+        <p > <small> Kasthuri et al. (2015) </small></p>
+    </section>
+
+<section data-background="#000000">
+    <p> <i style="font-style: italic !important"> C. elegans  </i> </p> 
+        <video loop controls='true' width='50%' height='50%' src="assetsmcknight/wormconnectomemovie.mp4" data-autoplay></video>
+    <p > <small> Witvliet et al. (2021) </small></p>
+</section>
+
+    <section>
+        <p>Scanning Electron Microscopes</p>
+        <div style="position: absolute; top: 150px; left: 3%; width: 27%;">
+            <p style="font-size:20px">
+                1 cubic millimeter <br>
+                &#8595;<br> 
+                4 nm &#215; 4 nm &#215; 30 nm per voxel 
+                &#8595;<br> 
+                2,000,000,000,000,000 pixels
+            </p>
+        </div>
+        <div style="position: absolute; top: 100px; left: 36%; width: 27%; height: 600px;">
+            <img src=" assetsmcknight/SinglebeamSEM.png " height="300px">
+            <p style="font-size:20px">
+                1 &#181;s / pixel<br>
+                &#8595;<br> 
+                60 years 
+            </p>
+        </div>
+        <div style="position: absolute; top: 100px; left: 69%; width: 27%; height: 600px;">
+            <img src=" assetsmcknight/MultibeamSEM.png " height="300px"> 
+            <p style="font-size:20px">
+                61 beams<br> 
+                &#8595;<br> 
+                1 year 
+            </p>
+        </div>
+    </section>
+
+</section>
+
+<!-- Super resolution-->
+
+<section>
+    <section data-auto-animate data-background="#000000">
+        <p> 
+           Structural information for connectomics is sparse 
+        </p>
+            <div data-id="cover"> 
+                <img src=" assetsmcknight/BerghiaRaw.png " width="50%"> 
+            </div>
+        <p data-id="berghiacaption" style="font-size:25px">
+          <i style="font-style: italic !important"> Berghia stephanieae </i> <br> 
+          Single-beam SEM image 
+        </p>
+    </section>
+
+    <section data-auto-animate data-background="#000000">
+        <p> 
+           Structural information for connectomics is sparse 
+        </p>
+            <div data-id="cover"> 
+                <img src=" assetsmcknight/Berghiamembranes.png " width="50%"> 
+            </div>
+        <p data-id="berghiacaption" style="font-size:25px">
+          Connectomics <i style="font-style: italic !important"> only </i> requires membranes<br>
+          <span style="color:yellow"> Traditional single-beam SEM acquisition spends equal time on every pixel  </span> 
+        </p>
+    </section>
+
+
+<section data-background="#000000">
+    <p> Active acquisition </p> 
+        <video loop controls='true' width='60%' height='60%' src="assetsmcknight/media1.mp4" data-autoplay></video>
+    <p style="font-size:25px">
+        Human vision uses content-guided saccadic <br>
+        eye movements to efficiently gather information 
+    </p>
+</section>
+
+
+</section>
+
+<!-- Segmentation Tests-->
+
+<section>
+<section data-auto-animate data-background="#000000">
+    <p data-id="titleseg"> Segmentation of low-speed images (1 &#181;s/pixel) </p>
+    <div class="row">
+        <div class="column left">
+            <img data-id="micrograph" src="assetsmcknight/slowraw.png" width="100%">
+        </div>
+        <div class="column middle">
+            <p align="left" style="font-size:20px">  
+                &nbsp;&nbsp;&nbsp;&nbsp; 
+            </p>
+        </div>
+        <div class="column right">
+            <img data-id="painting" src="assetsmcknight/slowsegmentation.png" width="100%">
+        </div>
+    </div>
+    <p data-id="captionseg" style="font-size:25px"> 
+        <span style="color:white"> Ground-truth accuracy  </span> 
+    </p>
+</section>
+<section data-auto-animate data-background="#000000">
+    <p data-id="titleseg"> Segmentation of high-speed images (0.1 &#181;s/pixel)</p>
+    <div class="row">
+        <div class="column left">
+            <img data-id="micrograph" src="assetsmcknight/fullfastclip.png" width="100%">
+        </div>
+        <div class="column middle">
+            <p align="left" style="font-size:20px">  
+                &nbsp;&nbsp;&nbsp;&nbsp; 
+            </p>
+        </div>
+        <div class="column right">
+            <img data-id="painting" src="assetsmcknight/fastsegmentation.png" width="100%">
+        </div>
+    </div>
+    <p data-id="captionseg" style="font-size:25px"> 
+        <span style="color:white"> <i style="font-style: italic !important"> Mostly</i> okay </span> 
+    </p>
+</section>
+<section data-auto-animate data-background="#000000">
+    <p data-id="titleseg"> Segmentation of high-speed images (0.1 &#181;s/pixel)</p>
+    <div class="row">
+        <div class="column left">
+            <img data-id="micrograph" src="assetsmcknight/fullfastclip.png" width="100%">
+        </div>
+        <div class="column middle">
+            <p align="left" style="font-size:20px">  
+                &nbsp;&nbsp;&nbsp;&nbsp; 
+            </p>
+        </div>
+        <div class="column right">
+            <img data-id="painting" src="assetsmcknight/fasterrors.png" width="100%">
+        </div>
+    </div>
+    <p data-id="captionseg" style="font-size:25px"> 
+        <span style="color:red"> Merge errors,  </span> 
+        <span style="color:MediumOrchid"> missing data  </span> 
+    </p>
+</section>
+<section data-auto-animate data-background="#000000">
+    <p data-id="titleseg"> Segmentation of high-speed images (0.1 &#181;s/pixel)</p>
+    <div class="row">
+        <div class="column left">
+            <img data-id="micrograph" src="assetsmcknight/fullfastclip.png" width="100%">
+        </div>
+        <div class="column middle">
+            <p align="left" style="font-size:20px">  
+                &nbsp;&nbsp;&nbsp;&nbsp; 
+            </p>
+        </div>
+        <div class="column right">
+            <img data-id="painting" src="assetsmcknight/hybridgreyROIs.png" width="100%">
+        </div>
+    </div>
+    <p data-id="captionseg" style="font-size:25px"> 
+        <span style="color:yellow"> Predict problems areas &#8594 selective low-speed re-scan </span> 
+    </p>
+</section>
+<section data-auto-animate data-background="#000000">
+    <p data-id="titleseg"> Segmentation of high-speed images (0.1 &#181;s/pixel)</p>
+    <div class="row">
+        <div class="column left">
+            <img data-id="micrograph" src="assetsmcknight/hybridgreyROIs.png" width="100%">
+        </div>
+        <div class="column middle">
+            <p align="left" style="font-size:20px">  
+                &nbsp;&nbsp;&nbsp;&nbsp; 
+            </p>
+        </div>
+        <div class="column right">
+            <img data-id="painting" src="assetsmcknight/hybridsegmentation.png" width="100%">
+        </div>
+    </div>
+    <p data-id="captionseg" style="font-size:25px"> 
+        <span style="color:white"> Error-free segmentation of hybrid images </span> 
+    </p>
+</section>
+</section>
+
+<section>
+    <p> Analysis confirms speed and accuracy </p> 
+    <div class="row">
+        <div class="column left">
+            <img src="assetsmcknight/bigstatisticsclip2.png" width="100%">
+        <p style="font-size:25px"> 
+            <span style="color:white"> Slow EM, GT segmentation</span> 
+        </p>
+        </div>
+        <div class="column middle">
+            <p align="left" style="font-size:20px">  
+                &nbsp;&nbsp;&nbsp;&nbsp; 
+            </p>
+        </div>
+        <div class="column left">
+            <img src="assetsmcknight/bigstatisticsclip1.png" width="100%">
+        <p style="font-size:25px"> 
+            <span style="color:white"> Hybrid EM, segmentation</span> 
+        </p>
+        </div>
+    </div>
+        <p style="font-size:25px"> 
+            <span style="color:yellow"> Time ratio slow vs hybrid : 7.7 improvement<br>
+            Variation of Information slow vs hybrid: 0.021
+            </span> 
+        </p>
+</section>
+
+
+<section>
+<section data-auto-animate data-background="#000000">
+    <p data-id="titleseg"> Fast-acquisition, predict problematic regions </p>
+        <img data-id="bigpics" src="assetsmcknight/bigrawerrors.png" width="60%">
+</section>
+<section data-auto-animate data-background="#000000">
+    <p data-id="titleseg"> Rescan problematic regions </p>
+        <img data-id="bigpics" src="assetsmcknight/bigROIs.png" width="60%">
+</section>
+<section data-auto-animate data-background="#000000">
+    <p data-id="titleseg"> Reconstitute hybrid image </p>
+        <img data-id="bigpics" src="assetsmcknight/biggood.png" width="60%">
+</section>
+</section>
+
+
+<section data-background="#FFFFFF">
+        <img src="assetsmcknight/speedupvsdwelltime.png" width="60%">
+        <p style="font-size:25px"> 
+            <span style="color:black"> How much faster can smart electron microscopy be, <br>
+            when matching the accuracy of homogenous slow scan? 
+            </span> 
+        </p>
+</section>
+
+
+<section>
+<section data-auto-animate data-background="#000000">
+    <p data-id="titlegen"> Image generator for visual coherence</p>
+        <img data-id="imagegen" src="assetsmcknight/imagegen1.png" width="60%">
+</section>
+<section data-auto-animate data-background="#000000">
+    <p data-id="titlegen"> Image generator for visual coherence</p>
+        <img data-id="imagegen" src="assetsmcknight/imagegen2.png" width="60%">
+</section>
+<section data-auto-animate data-background="#000000">
+    <p data-id="titlegen"> Image generator for visual coherence</p>
+        <img data-id="imagegen" src="assetsmcknight/imagegen3.png" width="60%">
+</section>
+</section>
+<!-- Acknowledgments  -->
+
+<section data-background="#000000">
+    <div style="position: absolute; top: 0px; left: 0%; width: 30%; height: 200px;">
+        <img src=" assetsmcknight/yaron.jpeg ">
+        <p style="font-size:50%;">Yaron Meirovitch <br />  Harvard/MIT </p>
+    </div>
+                                            
+    <div style="position: absolute; top: 0px; left: 33%; width: 33%; height: 200px;">
+        <img src=" assetsmcknight/CorePark.png ">
+        <p style="font-size:50%;">Core Park <br /> Harvard </p>
+    </div>
+                                            
+    <div style="position: absolute; top: 0px; left: 66%; width: 33%; height: 200px;">
+        <img src=" assetsmcknight/Lu_Mi.jpg ">
+        <p style="font-size:50%;">Lu Mi  <br /> MIT </p>
+    </div>
+                                            
+    <div style="position: absolute; top: 350px; left: 0%; width: 30%; height: 600px;">
+            <img src=" assetsmcknight/Thermofisher.png " width="100%"> </div>
+    <div style="position: absolute; top: 350px; left: 33%; width: 30%; height: 600px;">
+        <p style="font-size:50%;"> Pavel Potocek </p>
+        <p style="font-size:50%;"> Maurice Peemen </p>
+    </div>
+    <div style="position: absolute; top: 350px; left: 66%; width: 30%; height: 600px;">
+        <p style="font-size:50%;"> Jeff Lichtman </p>
+        <p style="font-size:50%;"> Nir Shavit </p>
+        <p style="font-size:50%;"> Hanspeter Pfister  </p>
+        <p style="font-size:50%;"> Shashata Sawmya </p>
+        <p style="font-size:50%;"> Richard Schalek </p>
+        <p style="font-size:50%;"> Yicong Li </p>
+    </div>
+</section>
+
+</div>
+
+</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/search/search.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'linear',
+
+				mathjax2: {
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+				// There are three typesetters available
+				// RevealMath.MathJax2 (default)
+				// RevealMath.MathJax3
+				// RevealMath.KaTeX
+				//
+				// More info at https://revealjs.com/math/
+				plugins: [ RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>
